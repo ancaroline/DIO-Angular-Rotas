@@ -26,4 +26,9 @@ export class UserService {
   postUser(user: User):Observable<User> {
     return this.httpClient.post<User>(this.apiUrl, user, this.httpOptions);
   }
+
+  //Excluir o usuário do bando de DELETE
+  deleteUser(id: number):Observable<User> {
+    return this.httpClient.delete<User>(`${this.apiUrl}/id/${id}`)
+  }
 }

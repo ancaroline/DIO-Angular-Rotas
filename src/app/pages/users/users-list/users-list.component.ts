@@ -1,5 +1,6 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Subscriber } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -18,6 +19,12 @@ export class UsersListComponent implements OnInit {
   getUsers(): void {
     this.userService.getUsers().subscribe(response => {
       this.users = response;
+    })
+  }
+
+  deleteUser(id: number): void {
+    this.userService.deleteUser(id).subscribe(response => {
+      console.log('Usuário Excluído')
     })
   }
 }
